@@ -23,19 +23,19 @@
 }
 .stat-icon.cyan {
   color: var(--cyan);
-  background: rgba(52, 215, 230, 0.09);
+  background: var(--cyan-tint-8);
 }
 .stat-icon.violet {
   color: var(--violet);
-  background: rgba(159, 136, 255, 0.1);
+  background: var(--violet-tint);
 }
 .stat-icon.green {
   color: var(--green);
-  background: rgba(82, 214, 154, 0.09);
+  background: var(--green-tint);
 }
 .stat-icon.amber {
   color: var(--amber);
-  background: rgba(243, 189, 99, 0.09);
+  background: var(--amber-tint);
 }
 .stat-card > div:last-child {
   display: grid;
@@ -79,9 +79,9 @@
   display: grid;
   place-items: center;
   align-content: center;
-  border: 1px solid rgba(52, 215, 230, 0.15);
+  border: 1px solid var(--cyan-tint-15);
   border-radius: 11px;
-  background: rgba(52, 215, 230, 0.05);
+  background: var(--cyan-tint-4);
 }
 .date-tile b {
   font-size: 17px;
@@ -113,7 +113,7 @@
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
-  background: linear-gradient(145deg, rgba(20, 84, 102, 0.22), rgba(16, 24, 44, 0.94));
+  background: var(--next-session-gradient);
 }
 .next-icon {
   width: 48px;
@@ -218,9 +218,9 @@
   display: inline-flex;
   justify-content: center;
   padding: 5px 8px;
-  color: #9fb3c7;
-  background: rgba(145, 170, 195, 0.08);
-  border: 1px solid rgba(145, 170, 195, 0.12);
+  color: var(--status-neutral-fg);
+  background: var(--status-neutral-bg);
+  border: 1px solid var(--status-neutral-border);
   border-radius: 999px;
   font-size: 8px;
   font-weight: 800;
@@ -235,32 +235,32 @@
 .status-present,
 .status-graded,
 .status-open {
-  color: #85eeb6;
-  background: rgba(82, 214, 154, 0.08);
-  border-color: rgba(82, 214, 154, 0.2);
+  color: var(--green);
+  background: var(--status-success-bg);
+  border-color: var(--status-success-border);
 }
 .status-pending,
 .status-submitted,
 .status-scheduled,
 .status-late,
 .status-recurring {
-  color: #f2cb87;
-  background: rgba(243, 189, 99, 0.08);
-  border-color: rgba(243, 189, 99, 0.2);
+  color: var(--amber);
+  background: var(--status-warning-bg);
+  border-color: var(--status-warning-border);
 }
 .status-declined,
 .status-rejected,
 .status-cancelled,
 .status-absent {
-  color: #ff9aab;
-  background: rgba(255, 113, 132, 0.08);
-  border-color: rgba(255, 113, 132, 0.2);
+  color: var(--red);
+  background: var(--status-danger-bg);
+  border-color: var(--status-danger-border);
 }
 .status-in-progress,
 .status-under-review {
-  color: #9cecf4;
+  color: var(--cyan-light);
   background: var(--cyan-tint-8);
-  border-color: rgba(52, 215, 230, 0.2);
+  border-color: var(--status-info-border);
 }
 .table-wrap {
   width: 100%;
@@ -284,7 +284,7 @@ th {
 }
 td {
   padding: 13px 12px;
-  color: #9cafc2;
+  color: var(--muted);
   border-bottom: 1px solid var(--line-soft);
   font-size: 11px;
   vertical-align: middle;

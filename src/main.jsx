@@ -8,7 +8,7 @@ import "./styles.css";
 // if (saved === "dark") document.documentElement.dataset.theme = "dark";
 
 // // Force dark mode
-document.documentElement.dataset.theme = "dark";
+// document.documentElement.dataset.theme = "dark";
 
 
 createRoot(document.getElementById("root")).render(

@@ -81,7 +81,7 @@
     inset: 0;
     z-index: 29;
     border: 0;
-    background: rgba(0, 0, 0, 0.55);
+    background: var(--sidebar-scrim);
   }
   .app-main {
     width: 100%;

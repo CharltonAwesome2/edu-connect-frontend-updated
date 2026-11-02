@@ -9,7 +9,7 @@
   width: 245px;
   display: flex;
   flex-direction: column;
-  background: rgba(6, 14, 24, 0.96);
+  background: var(--sidebar-bg);
   border-right: 1px solid var(--line);
   z-index: 30;
 }
@@ -33,13 +33,13 @@
   align-items: center;
   gap: 12px;
   border-radius: 10px;
-  color: #8196ac;
+  color: var(--muted-strong);
   font-size: 13px;
   font-weight: 650;
 }
 .side-nav a:hover {
-  color: #c9d7e6;
-  background: rgba(255, 255, 255, 0.025);
+  color: var(--muted-strong);
+  background: var(--tint-2);
 }
 .side-nav a.active {
   color: #c4f7f7;
@@ -78,7 +78,7 @@
   text-overflow: ellipsis;
 }
 .user-meta span {
-  color: #6e849b;
+  color: var(--muted-soft);
   font-size: 8px;
   margin-top: 3px;
 }
@@ -96,7 +96,7 @@
   justify-content: flex-end;
   gap: 15px;
   padding: 0 28px;
-  background: rgba(5, 11, 19, 0.86);
+  background: var(--topbar-bg);
   backdrop-filter: blur(18px);
   border-bottom: 1px solid var(--line);
 }
@@ -105,7 +105,7 @@
   display: flex;
   align-items: center;
   gap: 8px;
-  color: #758aa0;
+  color: var(--muted-strong);
   font-size: 11px;
 }
 .live-dot {
@@ -123,8 +123,8 @@
   height: 39px;
   border: 1px solid var(--line);
   border-radius: 11px;
-  color: #9cafc3;
-  background: rgba(255, 255, 255, 0.025);
+  color: var(--muted);
+  background: var(--tint-2);
 }
 .notification-button > span {
   position: absolute;
@@ -147,7 +147,7 @@
   top: 55px;
   width: min(390px, calc(100vw - 30px));
   max-height: 500px;
-  background: #091523;
+  background: var(--notification-panel-bg);
   border: 1px solid var(--line);
   border-radius: 15px;
   box-shadow: var(--shadow);
@@ -178,10 +178,10 @@
   align-items: flex-start;
   gap: 12px;
   text-align: left;
-  color: #9eb0c4;
+  color: var(--muted);
   background: transparent;
   border: 0;
-  border-bottom: 1px solid rgba(147, 177, 208, 0.08);
+  border-bottom: 1px solid var(--line-soft);
   padding: 14px 18px;
 }
 .notification-item.unread {
@@ -192,7 +192,7 @@
   gap: 4px;
 }
 .notification-item strong {
-  color: #d6e3ef;
+  color: var(--muted-strong);
   font-size: 12px;
 }
 .notification-item small {
@@ -200,7 +200,7 @@
   line-height: 1.45;
 }
 .notification-item time {
-  color: #5f748a;
+  color: var(--muted-soft);
   font-size: 9px;
 }
 .notification-dot {
@@ -208,7 +208,7 @@
   min-width: 7px;
   height: 7px;
   border-radius: 50%;
-  background: #445a70;
+  background: var(--muted-soft);
 }
 .notification-item.unread .notification-dot {
   background: var(--cyan);

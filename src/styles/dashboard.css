@@ -68,7 +68,7 @@
   align-items: center;
   gap: 14px;
   padding: 13px 0;
-  border-top: 1px solid rgba(147, 177, 208, 0.1);
+  border-top: 1px solid var(--line-soft);
 }
 .session-row:first-child {
   border-top: 0;
@@ -121,7 +121,7 @@
   display: grid;
   place-items: center;
   color: var(--cyan);
-  background: rgba(52, 215, 230, 0.1);
+  background: var(--cyan-tint-8);
   border-radius: 14px;
   margin: 18px 0;
 }
@@ -142,14 +142,14 @@
   align-items: center;
   gap: 12px;
   padding: 9px;
-  background: rgba(255, 255, 255, 0.018);
-  border: 1px solid rgba(147, 177, 208, 0.08);
+  background: var(--tint-2);
+  border: 1px solid var(--line-soft);
   border-radius: 11px;
 }
 .subject-chip > span {
   min-width: 49px;
   color: var(--cyan);
-  background: rgba(52, 215, 230, 0.08);
+  background: var(--cyan-tint-8);
   text-align: center;
   border-radius: 8px;
   padding: 9px 5px;
@@ -170,7 +170,7 @@
 }
 .subject-chip button {
   border: 0;
-  color: #71869a;
+  color: var(--muted-soft);
   background: transparent;
   font-size: 9px;
 }
@@ -185,7 +185,7 @@
   align-items: center;
   gap: 10px;
   padding: 10px 0;
-  border-bottom: 1px solid rgba(147, 177, 208, 0.08);
+  border-bottom: 1px solid var(--line-soft);
 }
 .compact-list > div:last-child {
   border-bottom: 0;
@@ -209,7 +209,7 @@
   place-items: center;
   border-radius: 9px;
   color: var(--cyan);
-  background: rgba(52, 215, 230, 0.07);
+  background: var(--cyan-tint-4);
 }
 .list-icon svg {
   width: 16px;
@@ -259,7 +259,7 @@
 .status-in-progress,
 .status-under-review {
   color: #9cecf4;
-  background: rgba(52, 215, 230, 0.08);
+  background: var(--cyan-tint-8);
   border-color: rgba(52, 215, 230, 0.2);
 }
 .table-wrap {
@@ -275,7 +275,7 @@ table {
 }
 th {
   padding: 10px 12px;
-  color: #647a90;
+  color: var(--muted-soft);
   border-bottom: 1px solid var(--line);
   font-size: 9px;
   text-transform: uppercase;
@@ -285,12 +285,12 @@ th {
 td {
   padding: 13px 12px;
   color: #9cafc2;
-  border-bottom: 1px solid rgba(147, 177, 208, 0.08);
+  border-bottom: 1px solid var(--line-soft);
   font-size: 11px;
   vertical-align: middle;
 }
 td b {
-  color: #d7e3ee;
+  color: var(--muted-strong);
 }
 td a,
 td button {
@@ -318,7 +318,7 @@ td button {
   display: block;
   max-width: 340px;
   margin-top: 3px;
-  color: #73899e;
+  color: var(--muted-soft);
 }
 .rating-picker {
   display: flex;
@@ -328,7 +328,7 @@ td button {
   padding: 0;
   border: 0;
   background: transparent;
-  color: #354b60;
+  color: var(--muted-soft);
 }
 .rating-picker button.active {
   color: var(--amber);

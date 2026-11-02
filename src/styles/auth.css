@@ -34,7 +34,7 @@
   display: inline-flex;
   align-items: center;
   gap: 7px;
-  color: #8fa3b9;
+  color: var(--muted-soft);
   font-size: 13px;
   z-index: 1;
 }
@@ -50,7 +50,7 @@
 .auth-side blockquote {
   margin: 0;
   max-width: 480px;
-  color: #b7c8da;
+  color: var(--muted-strong);
   font-size: 16px;
   line-height: 1.7;
   z-index: 1;
@@ -71,7 +71,7 @@
   display: flex;
   align-items: center;
   gap: 12px;
-  color: #b7c8d9;
+  color: var(--muted-strong);
   font-size: 13px;
 }
 .auth-benefits svg {
@@ -125,8 +125,8 @@
   align-items: center;
   gap: 12px;
   text-align: left;
-  color: #aebfd0;
-  background: #07111e;
+  color: var(--muted);
+  background: var(--panel-2);
   border: 1px solid var(--line);
   border-radius: 12px;
   padding: 13px;
@@ -134,7 +134,7 @@
 .role-picker button.selected {
   color: var(--text);
   border-color: rgba(52, 215, 230, 0.5);
-  background: rgba(52, 215, 230, 0.07);
+  background: var(--cyan-tint-4);
 }
 .role-picker button > svg {
   color: var(--cyan);

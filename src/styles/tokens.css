@@ -16,7 +16,7 @@
   color: #0d1b2a;
   background: #ffffff;
 
-  /* ── Base surfaces ─────────────────────────── */
+  /*  Base surfaces  */
   --bg: #ffffff;
   --panel: #ffffff;
   --panel-2: #f4f6f9;
@@ -24,13 +24,13 @@
   --line: #e2e8f0;
   --line-soft: #eef2f7;
 
-  /* ── Text ──────────────────────────────────── */
+  /*  Text  */
   --text: #0d1b2a;
   --muted: #5a6b7d;
   --muted-strong: #3d4e60;
   --muted-soft: #8796a8;
 
-  /* ── Accents ───────────────────────────────── */
+  /*  Accents  */
   --cyan: #0da5b7;
   --cyan-dark: #08828f;
   --violet: #6b5bd6;
@@ -38,7 +38,7 @@
   --amber: #b7791f;
   --red: #d63a4f;
 
-  /* ── Accent tints ──────────────────────────── */
+  /*  Accent tints  */
   --cyan-tint-4: rgba(13, 165, 183, 0.07);
   --cyan-tint-8: rgba(13, 165, 183, 0.1);
   --cyan-tint-15: rgba(13, 165, 183, 0.15);
@@ -50,23 +50,23 @@
   --amber-tint: rgba(183, 121, 31, 0.1);
   --violet-tint: rgba(107, 91, 214, 0.1);
 
-  /* ── Neutral tints ─────────────────────────── */
+  /*  Neutral tints  */
   --tint-1: rgba(0, 0, 0, 0.015);
   --tint-2: rgba(0, 0, 0, 0.025);
   --tint-4: rgba(0, 0, 0, 0.04);
   --tint-6: rgba(0, 0, 0, 0.06);
 
-  /* ── Shadows ───────────────────────────────── */
+  /*  Shadows  */
   --shadow: 0 22px 60px rgba(15, 23, 42, 0.08);
   --card-shadow: 0 12px 35px rgba(15, 23, 42, 0.06);
   --card-shadow-hover: 0 18px 45px rgba(15, 23, 42, 0.1);
 
-  /* ── Decorative ────────────────────────────── */
+  /*  Decorative  */
   --glow-1: rgba(24, 160, 186, 0.06);
   --glow-2: rgba(109, 83, 209, 0.05);
   --card-highlight: rgba(0, 0, 0, 0.02);
 
-  /* ── Page backdrops ────────────────────────── */
+  /*  Page backdrops  */
   --marketing-bg: #f7f9fc;
   --directory-bg: #f7f9fc;
   --modal-bg: #ffffff;
@@ -85,7 +85,7 @@
   --next-session-gradient: linear-gradient(145deg, rgba(13, 165, 183, 0.08), #f4f6f9);
   --feature-band-gradient: linear-gradient(135deg, rgba(13, 165, 183, 0.06), rgba(107, 91, 214, 0.05));
 
-  /* ── Marketing glows ───────────────────────── */
+  /*  Marketing glows  */
   --marketing-glow-1: rgba(35, 188, 205, 0.07);
   --marketing-glow-2: rgba(116, 82, 224, 0.05);
   --directory-glow: rgba(31, 151, 174, 0.06);
@@ -93,7 +93,7 @@
   --preview-focus-gradient: linear-gradient(135deg, rgba(13, 165, 183, 0.06), rgba(107, 91, 214, 0.04));
   --hero-heading-gradient: linear-gradient(100deg, #0da5b7, #6b5bd6);
 
-  /* ── Brand / avatars ───────────────────────── */
+  /*  Brand / avatars  */
   --brand-mark-gradient: linear-gradient(135deg, #0da5b7, #08828f);
   --brand-mark-fg: #ffffff;
   --avatar-gradient: linear-gradient(135deg, #0da5b7, #6b5bd6);
@@ -101,7 +101,7 @@
   --tutor-avatar-gradient: linear-gradient(135deg, #0da5b7, #6b5bd6);
   --tutor-avatar-fg: #ffffff;
 
-  /* ── Buttons ───────────────────────────────── */
+  /*  Buttons  */
   --button-primary-bg: linear-gradient(135deg, #0da5b7, #08828f);
   --button-primary-fg: #ffffff;
   --button-primary-shadow: 0 10px 25px rgba(13, 165, 183, 0.16);
@@ -109,18 +109,18 @@
   --icon-button-fg: #5a6b7d;
   --role-picker-selected-border: rgba(13, 165, 183, 0.5);
 
-  /* ── Cyan "light text" variants ────────────── */
+  /*  Cyan "light text" variants  */
   --cyan-light: #08828f;
   --cyan-hover: #08828f;
 
-  /* ── Preview / notification misc ───────────── */
+  /*  Preview / notification misc  */
   --preview-logo-fg: #ffffff;
   --preview-progress-track: #e2e8f0;
   --notification-badge-fg: #ffffff;
   --notification-badge-border: #ffffff;
   --notification-dot-off: #c4cdd6;
 
-  /* ── Status chips ──────────────────────────── */
+  /*  Status chips  */
   --status-success-fg: #1f9d63;
   --status-success-bg: rgba(31, 157, 99, 0.08);
   --status-success-border: rgba(31, 157, 99, 0.2);
@@ -141,7 +141,7 @@
   --status-neutral-bg: rgba(90, 107, 125, 0.08);
   --status-neutral-border: rgba(90, 107, 125, 0.15);
 
-  /* ── Notices ───────────────────────────────── */
+  /*  Notices  */
   --notice-error-fg: #b91c2e;
   --notice-error-bg: rgba(214, 58, 79, 0.08);
   --notice-error-border: rgba(214, 58, 79, 0.25);
@@ -154,7 +154,7 @@
   --notice-info-bg: rgba(13, 165, 183, 0.06);
   --notice-info-border: rgba(13, 165, 183, 0.2);
 
-  /* ── Inputs / overlays ─────────────────────── */
+  /*  Inputs / overlays  */
   --input-bg: #ffffff;
   --input-placeholder: #8796a8;
   --input-focus-border: rgba(13, 165, 183, 0.6);

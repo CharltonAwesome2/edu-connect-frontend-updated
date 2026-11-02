@@ -17,9 +17,9 @@
   white-space: nowrap;
 }
 .tabs button.active {
-  color: #bcf5f5;
+  color: var(--cyan-light);
   background: var(--cyan-tint-4);
-  border-color: rgba(52, 215, 230, 0.15);
+  border-color: var(--cyan-tint-15);
 }
 .attention-list {
   display: grid;
@@ -57,7 +57,7 @@
   display: grid;
   place-items: center;
   padding: 18px;
-  background: rgba(0, 5, 10, 0.76);
+  background: 	var(--modal-backdrop);
   backdrop-filter: blur(8px);
 }
 .modal {

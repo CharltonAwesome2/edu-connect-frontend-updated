@@ -2,7 +2,7 @@
   min-height: 100vh;
   display: grid;
   grid-template-columns: minmax(360px, 0.85fr) 1.15fr;
-  background: #050a12;
+  background: var(--auth-bg);
 }
 .auth-side {
   position: relative;
@@ -11,10 +11,7 @@
   flex-direction: column;
   justify-content: space-between;
   overflow: hidden;
-  background:
-    radial-gradient(circle at 30% 30%, rgba(52, 215, 230, 0.15), transparent 28%),
-    radial-gradient(circle at 70% 80%, rgba(120, 90, 230, 0.16), transparent 35%),
-    linear-gradient(145deg, #081521, #07101b);
+  background: var(--auth-side-bg);
   border-right: 1px solid var(--line);
 }
 .auth-side::after {
@@ -24,7 +21,7 @@
   height: 350px;
   right: -180px;
   top: 23%;
-  border: 1px solid rgba(52, 215, 230, 0.14);
+  border: 1px solid 	var(--cyan-tint-15);
   border-radius: 50%;
   box-shadow:
     0 0 0 70px rgba(52, 215, 230, 0.02),
@@ -133,7 +130,7 @@
 }
 .role-picker button.selected {
   color: var(--text);
-  border-color: rgba(52, 215, 230, 0.5);
+  border-color: var(--role-picker-selected-border);
   background: var(--cyan-tint-4);
 }
 .role-picker button > svg {

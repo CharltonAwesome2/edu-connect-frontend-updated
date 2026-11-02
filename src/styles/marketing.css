@@ -2,8 +2,8 @@
   min-height: 100vh;
   overflow: hidden;
   background:
-    radial-gradient(circle at 75% 20%, rgba(35, 188, 205, 0.12), transparent 24%),
-    radial-gradient(circle at 20% 55%, rgba(116, 82, 224, 0.09), transparent 25%), #050a12;
+    radial-gradient(circle at 75% 20%, var(--marketing-glow-1), transparent 24%),
+    radial-gradient(circle at 20% 55%, var(--marketing-glow-2), transparent 25%), var(--marketing-bg);
 }
 .marketing-nav {
   height: 78px;
@@ -45,11 +45,11 @@
   display: inline-flex;
   align-items: center;
   gap: 7px;
-  color: #9eeef3;
+  color: var(--cyan-light);
   font-size: 12px;
   font-weight: 700;
   padding: 7px 11px;
-  border: 1px solid rgba(52, 215, 230, 0.24);
+  border: 1px solid var(--cyan-tint-25);
   background: var(--cyan-tint-4);
   border-radius: 999px;
 }
@@ -61,7 +61,7 @@
 }
 .hero h1 span {
   color: transparent;
-  background: linear-gradient(100deg, #68ede8, #8da4ff);
+  background: var(--hero-heading-gradient);
   -webkit-background-clip: text;
   background-clip: text;
 }
@@ -98,7 +98,7 @@
 }
 .hero-orbit {
   position: absolute;
-  border: 1px solid rgba(52, 215, 230, 0.12);
+  border: 1px solid var(--cyan-tint-15);
   border-radius: 50%;
 }
 .orbit-one {
@@ -108,19 +108,19 @@
 .orbit-two {
   width: 380px;
   height: 380px;
-  border-color: rgba(159, 136, 255, 0.14);
+  border-color: var(--violet-tint);
 }
 .preview-card {
   z-index: 2;
   width: min(100%, 435px);
-  background: rgba(11, 24, 39, 0.9);
+  background: var(--preview-card-bg);
   backdrop-filter: blur(20px);
-  border: 1px solid rgba(145, 190, 225, 0.2);
+  border: 1px solid var(--preview-card-border);
   border-radius: 22px;
   padding: 22px;
   box-shadow:
-    0 35px 100px rgba(0, 0, 0, 0.45),
-    0 0 80px rgba(31, 177, 196, 0.07);
+    0 35px 100px var(--preview-card-glow),
+    0 0 80px var(--preview-card-glow);
   transform: rotate(1.5deg);
 }
 .preview-top {
@@ -137,14 +137,14 @@
   width: 30px;
   height: 30px;
   border-radius: 9px;
-  color: #061014;
+  color: var(--preview-logo-fg);
   background: var(--cyan);
   font-size: 11px;
 }
 .online-pill {
   margin-left: auto;
-  color: #83ebb2;
-  background: rgba(82, 214, 154, 0.1);
+  color: var(--green);
+  background: var(--green-tint);
   padding: 5px 8px;
   border-radius: 999px;
   font-size: 10px;
@@ -154,8 +154,8 @@
   gap: 15px;
   margin: 24px 0;
   padding: 20px;
-  background: linear-gradient(135deg, var(--cyan-tint-8), rgba(159, 136, 255, 0.06));
-  border: 1px solid rgba(52, 215, 230, 0.13);
+  background: var(--preview-focus-gradient);
+  border: 1px solid var(--cyan-tint-15);
   border-radius: 15px;
 }
 .preview-icon {
@@ -187,7 +187,7 @@
 }
 .preview-progress > div {
   height: 6px;
-  background: #172536;
+  background: var(--preview-progress-track);
   border-radius: 10px;
   margin-top: 8px;
   overflow: hidden;
@@ -196,7 +196,9 @@
   display: block;
   width: 72%;
   height: 100%;
-  background: linear-gradient(90deg, var(--cyan), var(--violet));
+  background:
+    radial-gradient(circle at 75% 20%, var(--marketing-glow-1), transparent 24%),
+    radial-gradient(circle at 20% 55%, var(--marketing-glow-2), transparent 25%), var(--marketing-bg);
   border-radius: inherit;
 }
 .preview-grid {
@@ -231,7 +233,7 @@
   display: flex;
   align-items: center;
   gap: 10px;
-  background: rgba(12, 25, 41, 0.93);
+  background: var(--floating-note-bg);
   border: 1px solid var(--line);
   border-radius: 13px;
   padding: 12px 14px;
@@ -263,7 +265,7 @@
   place-items: center;
   width: 32px;
   height: 32px;
-  background: linear-gradient(135deg, #8f79e9, #4e83d5);
+  background: var(--avatar-mini-gradient);
   border-radius: 10px;
   font-size: 10px;
   font-weight: 800;
@@ -308,7 +310,7 @@
 .steps-grid article {
   position: relative;
   padding: 30px;
-  background: rgba(11, 22, 36, 0.78);
+  background: var(--steps-card-bg);
   border: 1px solid var(--line);
   border-radius: 18px;
 }
@@ -341,8 +343,8 @@
   grid-template-columns: 0.9fr 1.1fr;
   align-items: center;
   gap: 60px;
-  background: linear-gradient(135deg, rgba(23, 128, 151, 0.14), rgba(91, 65, 184, 0.1));
-  border: 1px solid rgba(52, 215, 230, 0.13);
+  background: var(--feature-band-gradient);
+  border: 1px solid var(--cyan-tint-15);
   border-radius: 24px;
 }
 .feature-list {

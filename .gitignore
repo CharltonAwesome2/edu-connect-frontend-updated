@@ -25,3 +25,5 @@ dist-ssr
 
 # Personal
 test_docs/
+
+.env.local

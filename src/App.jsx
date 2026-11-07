@@ -1,7 +1,7 @@
 // src/App.jsx
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { AuthProvider } from "@context/AuthContext";
-import { RequireAuth, RedirectIfAuthed } from "@components/guards";
+import { RequireAuth, RedirectIfAuthed, RequireRole } from "@components/guards";
 import AppShell from "@components/AppShell";
 
 // Part 0:
@@ -13,10 +13,13 @@ import NotFound from "@pages/NotFound";
 // import Signup from "@pages/auth/Signup";
 
 // Part 2:
-// import Payments from "@pages/Payments";
-// import Invoices from "@pages/Invoices";
-// import Reports from "@pages/Reports";
-// import AdminReports from "@pages/AdminReports";
+import Payments from "@pages/Payments";
+import Invoices from "@pages/Invoices";
+import Reports from "@pages/Reports";
+import AdminDashboard from "@pages/admin/AdminDashboard";
+import AdminFinancials from "@pages/admin/AdminFinancials";
+import AdminReports from "@pages/admin/AdminReports";
+import AdminUsers from "@pages/admin/AdminUsers";
 
 // Part 3:
 // import TutorDashboard from "@pages/TutorDashboard";
@@ -45,10 +48,16 @@ export default function App() {
 
           <Route element={<RequireAuth />}>
             <Route element={<AppShell />}>
-              {/* <Route path="/payments" element={<Payments />} /> */}
-              {/* <Route path="/invoices" element={<Invoices />} /> */}
-              {/* <Route path="/reports" element={<Reports />} /> */}
-              {/* <Route path="/admin/reports" element={<AdminReports />} /> */}
+              <Route path="/payments" element={<Payments />} />
+              <Route path="/invoices" element={<Invoices />} />
+              <Route path="/reports" element={<Reports />} />
+
+              <Route element={<RequireRole allow={["admin"]} />}>
+                <Route path="/admin" element={<AdminDashboard />} />
+                <Route path="/admin/financials" element={<AdminFinancials />} />
+                <Route path="/admin/reports" element={<AdminReports />} />
+                <Route path="/admin/users" element={<AdminUsers />} />
+              </Route>
 
               {/* <Route path="/tutor" element={<TutorDashboard />} /> */}
 

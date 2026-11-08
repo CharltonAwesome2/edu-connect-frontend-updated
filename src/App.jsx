@@ -9,8 +9,8 @@ import Landing from "@pages/Landing";
 import NotFound from "@pages/NotFound";
 
 // Part 1:
-// import Login from "@pages/auth/Login";
-// import Signup from "@pages/auth/Signup";
+import Login from "@pages/auth/Login";
+import Signup from "@pages/auth/Signup";
 
 // Part 2:
 import Payments from "@pages/Payments";
@@ -40,8 +40,8 @@ export default function App() {
       <BrowserRouter basename={import.meta.env.BASE_URL}>
         <Routes>
           <Route element={<RedirectIfAuthed />}>
-            {/* <Route path="/login" element={<Login />} /> */}
-            {/* <Route path="/signup" element={<Signup />} /> */}
+            <Route path="/login" element={<Login />} />
+            <Route path="/signup" element={<Signup />} />
           </Route>
 
           <Route path="/" element={<Landing />} />

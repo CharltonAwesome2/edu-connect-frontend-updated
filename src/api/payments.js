@@ -1,11 +1,11 @@
 import api from "./client";
 
 export const payments = {
-  all: () => api.get("/payment/all").then((r) => r.data),
-  byId: (id) => api.get(`/payment/read/${id}`).then((r) => r.data),
-  create: (payload) => api.post("/payment/create", payload).then((r) => r.data),
-  update: (payload) => api.put("/payment/update", payload).then((r) => r.data),
-  remove: (id) => api.delete(`/payment/delete/${id}`),
+  all: () => api.get("/payments").then((r) => r.data),
+  byId: (id) => api.get(`/payments/${id}`).then((r) => r.data),
+  create: (payload) => api.post("/payments", payload).then((r) => r.data),
+  update: (id, payload) => api.put(`/payments/${id}`, payload).then((r) => r.data),
+  remove: (id) => api.delete(`/payments/${id}`),
 
   bySession: (session) => api.post("/payment/by-session", session).then((r) => r.data),
   byTransactionReference: (reference) => api.get(`/payment/by-transaction-reference/${reference}`).then((r) => r.data),

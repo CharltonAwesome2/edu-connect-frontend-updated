@@ -4,6 +4,7 @@ const api = axios.create({
     baseURL: import.meta.env.VITE_API_URL || "http://localhost:8088/api",
     headers: { "Content-Type": "application/json" },
     timeout: 10000,
+    withCredentials: true,
 });
 
 api.interceptors.response.use(

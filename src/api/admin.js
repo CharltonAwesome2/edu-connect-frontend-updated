@@ -19,8 +19,8 @@ export const admin = {
       reports: Array.isArray(reportData) ? reportData : [],
     };
   },
-  users: () => users.all(),
-  payments: () => payments.all(),
-  invoices: () => invoices.all(),
-  reports: () => reports.all(),
+  users: () => api.get("/admin/users").then((r) => r.data),
+  payments: () => api.get("/admin/payments").then((r) => r.data),
+  invoices: () => api.get("/admin/invoices").then((r) => r.data),
+  reports: () => api.get("/admin/reports").then((r) => r.data),
 };

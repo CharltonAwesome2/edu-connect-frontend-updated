@@ -17,6 +17,10 @@ function readStoredUser() {
 
 function deriveRole(user) {
   if (!user) return null;
+  const accountType = String(user.accountType || user.role || "").toLowerCase();
+  if (accountType === "admin" || user.isAdmin) return "admin";
+  if (accountType === "tutor") return "tutor";
+  if (accountType === "student") return "student";
   if (user.isTutor && user.isStudent) return "both";
   if (user.isTutor) return "tutor";
   if (user.isStudent) return "student";
@@ -27,6 +31,7 @@ export function dashboardPath(user) {
   const role = deriveRole(user);
   if (role === "tutor") return "/tutor";
   if (role === "student") return "/student";
+  if (role === "admin") return "/admin";
   return "/";
 }
 

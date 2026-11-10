@@ -1,16 +1,16 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
-import {
-  CalendarCheck2, CheckCircle2, Clock, DollarSign, Star, XCircle,
-} from "lucide-react";
+import { CalendarCheck2, DollarSign, Star } from "lucide-react";
 import { useAuth } from "@context/AuthContext";
 import { tutorProfiles, bookingRequests, tutoringSessions,
          availability, tutorReviews } from "@api";
-import {
-  Card, EmptyState, Loading, PageHeader, StatCard, StatusBadge,
-  formatDate, money,
-} from "@components/ui";
+import { Loading, PageHeader, StatCard } from "@components/ui";
+import TutorStats from "./components/TutorStats";
+import BookingRequests from "./components/BookingRequests";
+import UpcomingSessions from "./components/UpcomingSessions";
+import AvailabilityManager from "./components/AvailabilityManager";
+import EarningsSummary from "./components/EarningsSummary";
+import TutorReviewsList from "./components/TutorReviewsList";
 
-const DAYS = ["MONDAY","TUESDAY","WEDNESDAY","THURSDAY","FRIDAY","SATURDAY","SUNDAY"];
 const TABS = ["overview", "requests", "sessions", "availability", "reviews"];
 
 export default function TutorDashboard() {
@@ -32,12 +32,13 @@ export default function TutorDashboard() {
     try {
       const prof = await tutorProfiles.byUserId(user.userId);
       setProfile(prof);
+      const pid = prof.tutorProfileId;
       const [reqs, sess, av, rev, avg] = await Promise.all([
-        bookingRequests.byTutorProfileId(prof.tutorProfileId).catch(() => []),
-        tutoringSessions.byTutorProfileId(prof.tutorProfileId).catch(() => []),
-        availability.byTutorProfileId(prof.tutorProfileId).catch(() => []),
-        tutorReviews.byTutorId(prof.tutorProfileId).catch(() => []),
-        tutorReviews.averageRating({ tutorProfileId: prof.tutorProfileId }).catch(() => 0),
+        bookingRequests.byTutorProfileId(pid).catch(() => []),
+        tutoringSessions.byTutorProfileId(pid).catch(() => []),
+        availability.byTutorProfileId(pid).catch(() => []),
+        tutorReviews.byTutorId(pid).catch(() => []),
+        tutorReviews.averageRating({ tutorProfileId: pid }).catch(() => 0),
       ]);
       setRequests(reqs ?? []);
       setSessions(sess ?? []);
@@ -95,147 +96,35 @@ export default function TutorDashboard() {
         ))}
       </div>
 
-      <section className="stats-grid">
-        <StatCard icon={<Clock />} label="Pending requests" value={pending.length} tone="amber" />
-        <StatCard icon={<CalendarCheck2 />} label="Upcoming sessions" value={upcoming.length} tone="cyan" />
-        <StatCard icon={<Star />} label="Average rating" value={avgRating ? avgRating.toFixed(1) : "—"} tone="violet" />
-        <StatCard icon={<DollarSign />} label="Total reviews" value={reviews.length} tone="green" />
-      </section>
+      <TutorStats
+        pendingCount={pending.length}
+        upcomingCount={upcoming.length}
+        avgRating={avgRating}
+        reviewCount={reviews.length}
+      />
 
       {tab === "overview" && (
         <div className="dashboard-grid">
-          <Card className="span-two">
-            <div className="card-heading">
-              <div>
-                <span className="eyebrow">Next up</span>
-                <h2>Upcoming sessions</h2>
-              </div>
-            </div>
-            {upcoming.length === 0 ? (
-              <EmptyState title="No upcoming sessions" text="Accepted requests will appear here." />
-            ) : (
-              <div className="session-list">
-                {upcoming.slice(0, 5).map((s) => (
-                  <SessionRow key={s.tutoringSessionId} session={s} />
-                ))}
-              </div>
-            )}
-          </Card>
-
-          <Card>
-            <div className="card-heading">
-              <div><span className="eyebrow">Requests</span><h2>Pending</h2></div>
-            </div>
-            <RequestsList requests={pending.slice(0, 5)} onAction={handleRequest} compact />
-          </Card>
+          <UpcomingSessions sessions={upcoming} />
+          <BookingRequests requests={pending} onAction={handleRequest} compact />
         </div>
       )}
 
       {tab === "requests" && (
-        <Card>
-          <div className="card-heading"><h2>All booking requests</h2></div>
-          <RequestsList requests={requests} onAction={handleRequest} />
-        </Card>
+        <BookingRequests requests={requests} onAction={handleRequest} />
       )}
 
       {tab === "sessions" && (
-        <Card>
-          <div className="card-heading"><h2>All sessions</h2></div>
-          <div className="session-list">
-            {sessions.length === 0 ? (
-              <EmptyState title="No sessions yet" text="Sessions will appear once requests are accepted." />
-            ) : sessions.map((s) => <SessionRow key={s.tutoringSessionId} session={s} />)}
-          </div>
-        </Card>
+        <UpcomingSessions sessions={sessions} title="All sessions" />
       )}
 
       {tab === "availability" && (
-        <Card>
-          <div className="card-heading"><h2>Weekly availability</h2></div>
-          <div className="subject-chips">
-            {slots.length === 0 ? (
-              <EmptyState title="No availability set" text="Add slots to start receiving requests." />
-            ) : slots.map((slot) => (
-              <div key={slot.availabilityId} className="availability-slot-row">
-                <button
-                  className={`availability-slot ${slot.isAvailable ? "selected" : ""}`}
-                  onClick={() => handleSlotToggle(slot)}
-                >
-                  <b>{slot.dayOfWeek}</b>
-                  <span>{slot.startTime} – {slot.endTime}</span>
-                </button>
-              </div>
-            ))}
-          </div>
-        </Card>
+        <AvailabilityManager slots={slots} onToggle={handleSlotToggle} />
       )}
 
-      {tab === "reviews" && (
-        <Card>
-          <div className="card-heading"><h2>Student reviews</h2></div>
-          {reviews.length === 0 ? (
-            <EmptyState title="No reviews yet" text="Reviews appear after completed sessions." />
-          ) : (
-            <div className="review-list">
-              {reviews.map((r) => (
-                <blockquote key={r.tutorReviewId}>
-                  <div>{"★".repeat(r.rating)}</div>
-                  <p>{r.comment || "No comment"}</p>
-                  <small>{formatDate(r.createdAt)}</small>
-                </blockquote>
-              ))}
-            </div>
-          )}
-        </Card>
-      )}
+      {tab === "reviews" && <TutorReviewsList reviews={reviews} />}
+
+      {tab === "overview" && <EarningsSummary sessions={sessions} />}
     </>
-  );
-}
-
-function SessionRow({ session }) {
-  const d = new Date(session.startTime);
-  return (
-    <div className="session-row">
-      <div className="date-tile">
-        <b>{d.getDate()}</b>
-        <span>{d.toLocaleString("en", { month: "short" })}</span>
-      </div>
-      <div className="session-info">
-        <h3>{session.subject?.subjectName || "Tutoring session"}</h3>
-        <p>{formatDate(session.startTime)} · {money(session.amount)}</p>
-      </div>
-      <StatusBadge status={session.status} />
-    </div>
-  );
-}
-
-function RequestsList({ requests, onAction, compact = false }) {
-  if (requests.length === 0) {
-    return <EmptyState title="Nothing here" text="No booking requests to show." />;
-  }
-  return (
-    <div className="request-list">
-      {requests.map((r) => (
-        <article key={r.bookingRequestId}>
-          <span className="request-icon"><CalendarCheck2 size={16} /></span>
-          <div>
-            <h3>{r.subject?.subjectName || "Session request"}</h3>
-            <p>{formatDate(r.preferredStartTime)} · {money(r.offeredAmount)}</p>
-            {!compact && <small>Student: {r.student?.name || r.studentId}</small>}
-          </div>
-          <StatusBadge status={r.status} />
-          {r.status === "PENDING" && (
-            <div className="request-actions">
-              <button className="button button-success" onClick={() => onAction(r, "ACCEPTED")}>
-                <CheckCircle2 size={14} /> Accept
-              </button>
-              <button className="button button-danger" onClick={() => onAction(r, "DECLINED")}>
-                <XCircle size={14} /> Decline
-              </button>
-            </div>
-          )}
-        </article>
-      ))}
-    </div>
   );
 }

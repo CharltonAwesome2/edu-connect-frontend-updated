@@ -18,7 +18,9 @@ export default function AvailabilityManager({ slots, onToggle }) {
                 onClick={() => onToggle(slot)}
               >
                 <b>{slot.dayOfWeek}</b>
-                <span>{slot.startTime} – {slot.endTime}</span>
+                <span>
+                  {slot.startTime} – {slot.endTime}
+                </span>
               </button>
             </div>
           ))}

@@ -17,25 +17,23 @@ export default function BookingRequests({ requests, onAction, compact = false })
         <div className="request-list">
           {requests.map((r) => (
             <article key={r.bookingRequestId}>
-              <span className="request-icon"><CalendarCheck2 size={16} /></span>
+              <span className="request-icon">
+                <CalendarCheck2 size={16} />
+              </span>
               <div>
                 <h3>{r.subject?.subjectName || "Session request"}</h3>
-                <p>{formatDate(r.preferredStartTime)} · {money(r.offeredAmount)}</p>
+                <p>
+                  {formatDate(r.preferredStartTime)} · {money(r.offeredAmount)}
+                </p>
                 {!compact && <small>Student: {r.student?.name || r.studentId}</small>}
               </div>
               <StatusBadge status={r.status} />
               {r.status === "PENDING" && (
                 <div className="request-actions">
-                  <button
-                    className="button button-success"
-                    onClick={() => onAction(r, "ACCEPTED")}
-                  >
+                  <button className="button button-success" onClick={() => onAction(r, "ACCEPTED")}>
                     <CheckCircle2 size={14} /> Accept
                   </button>
-                  <button
-                    className="button button-danger"
-                    onClick={() => onAction(r, "DECLINED")}
-                  >
+                  <button className="button button-danger" onClick={() => onAction(r, "DECLINED")}>
                     <XCircle size={14} /> Decline
                   </button>
                 </div>

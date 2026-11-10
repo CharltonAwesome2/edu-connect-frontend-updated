@@ -22,7 +22,7 @@ import AdminReports from "@pages/admin/AdminReports";
 import AdminUsers from "@pages/admin/AdminUsers";
 
 // Part 3:
-import TutorDashboard from "@pages/dashboard/tutor/TutorDashboard";
+import TutorDashboard from "@pages/TutorDashboard";
 
 
 // Part 4:

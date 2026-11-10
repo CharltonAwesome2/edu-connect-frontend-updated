@@ -33,7 +33,9 @@ function SessionRow({ session }) {
       </div>
       <div className="session-info">
         <h3>{session.subject?.subjectName || "Tutoring session"}</h3>
-        <p>{formatDate(session.startTime)} · {money(session.amount)}</p>
+        <p>
+          {formatDate(session.startTime)} · {money(session.amount)}
+        </p>
       </div>
       <StatusBadge status={session.status} />
     </div>

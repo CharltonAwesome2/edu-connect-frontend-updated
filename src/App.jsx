@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { AuthProvider } from "@context/AuthContext";
 import { RequireAuth, RedirectIfAuthed } from "@components/guards";
 import AppShell from "@components/AppShell";
+import StudentWorkspace from "@pages/student/StudentWorkspace";
 
 // Part 0:
 import Landing from "@pages/Landing";
@@ -52,11 +53,11 @@ export default function App() {
 
               {/* <Route path="/tutor" element={<TutorDashboard />} /> */}
 
-              
               {/* <Route path="/tutors" element={<Tutors />} /> */}
               {/* <Route path="/tutors/:id" element={<TutorPublicPage />} /> */}
 
-              {/* <Route path="/student" element={<StudentDashboard />} /> */}
+              <Route path="/student" element={<StudentWorkspace />} />
+
               {/* <Route path="/sessions/:id" element={<SessionDetail />} /> */}
               {/* <Route path="/notifications" element={<Notifications />} /> */}
               {/* <Route path="/profile" element={<Profile />} /> */}

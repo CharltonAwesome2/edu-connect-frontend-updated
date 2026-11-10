@@ -20,6 +20,57 @@ import NotFound from "@pages/NotFound";
 
 // Part 3:
 // import TutorDashboard from "@pages/TutorDashboard";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+
+import { AuthProvider } from "@context/AuthContext";
+
+import {
+  RequireAuth,
+  RedirectIfAuthed,
+  RequireRole
+} from "@components/guards";
+
+import AppShell from "@components/AppShell";
+
+import Landing from "@pages/Landing";
+import NotFound from "@pages/NotFound";
+import TutorDashboard from "@pages/TutorDashboard";
+
+export default function App() {
+  return (
+    <AuthProvider>
+      <BrowserRouter basename={import.meta.env.BASE_URL}>
+
+        <Routes>
+
+          <Route element={<RedirectIfAuthed />}>
+          </Route>
+
+          <Route path="/" element={<Landing />} />
+
+          <Route element={<RequireAuth />}>
+            <Route element={<AppShell />}>
+
+              <Route element={
+                <RequireRole allow={["tutor", "both"]} />
+              }>
+                <Route
+                  path="/tutor"
+                  element={<TutorDashboard />}
+                />
+              </Route>
+
+            </Route>
+          </Route>
+
+          <Route path="*" element={<NotFound />} />
+
+        </Routes>
+
+      </BrowserRouter>
+    </AuthProvider>
+  );
+}
 
 // Part 4:
 // import Tutors from "@pages/Tutors";

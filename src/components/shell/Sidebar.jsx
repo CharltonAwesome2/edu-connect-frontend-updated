@@ -17,7 +17,7 @@ function canSee(roles, currentRole) {
 }
 
 export default function Sidebar({ user, role, initials, open, onClose, onLogout }) {
-  const brandHome = role === "tutor" ? "/tutor" : "/student";
+  const brandHome = role === "admin" ? "/admin" : role === "tutor" ? "/tutor" : "/student";
 
   return (
     <aside
@@ -36,6 +36,14 @@ export default function Sidebar({ user, role, initials, open, onClose, onLogout 
       </div>
 
       <nav className="side-nav">
+        {role === "admin" && (
+          <>
+            <NavLink to="/admin" onClick={onClose}>Admin dashboard</NavLink>
+            <NavLink to="/admin/financials" onClick={onClose}>Financials</NavLink>
+            <NavLink to="/admin/reports" onClick={onClose}>Admin reports</NavLink>
+            <NavLink to="/admin/users" onClick={onClose}>Users</NavLink>
+          </>
+        )}
         {(role === "student" || role === "both") && (
           <NavLink to="/student" onClick={onClose}>
             Student dashboard

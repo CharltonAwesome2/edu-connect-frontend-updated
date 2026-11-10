@@ -12,3 +12,4 @@ export { invoices } from "./invoices";
 export { payments } from "./payments";
 export { notifications } from "./notification";
 export { reports } from "./reports";
+export { studentWorkspace } from "./studentWorkspace";
